@@ -1,36 +1,32 @@
 
 [![License](https://img.shields.io/badge/license-Apache-green.svg)](LICENSE)
-[![Discord chat](https://img.shields.io/discord/903339070925721652.svg?logo=discord&style=flat-square)](https://discord.gg/M95qX3KnG8)
 
-![Move logo](assets/color/SVG/Move_Logo_Design_Digital_Final_-01.svg)
+![Move logo](assets/color/PNG/MoveOnAptos.png)
 
-# The Move Language
+# The Move Language 
 
-Move is a programming language for writing safe smart contracts originally developed at Facebook to power the Diem blockchain. Move is designed to be a platform-agnostic language to enable common libraries, tooling, and developer communities across diverse blockchains with vastly different data and execution models. Move's ambition is to become the "JavaScript of web3" in terms of ubiquity--when developers want to quickly write safe code involving assets, it should be written in Move.
+Move is a programming language for writing safe smart contracts originally developed at Facebook to power the Diem blockchain. Move is designed to be a platform-agnostic language to enable common libraries, tooling, and developer communities across diverse blockchains with vastly different data and execution models.
 
-This repository is the official home of the Move virtual machine, bytecode verifier, compiler, prover, package manager, and book. For Move code examples and papers, check out [awesome-move](https://github.com/MystenLabs/awesome-move).
+This repository is a mirror of *Move on Aptos*, a natural evolution of the Move language how it was originally intended. The repository contains the generic part of the Move language and implementation as it is used on the [Aptos Network](https://aptosfoundation.org/) and on other networks. Major components of the implementation include 
+the Move virtual machine, bytecode verifier, compiler, prover, and package manager.
 
-## Quickstart
+For an introduction into the Move language, please check out the following resources:
 
-### Build the [Docker](https://www.docker.com/community/open-source/) Image for the Command Line Tool
+- The [Move Landing Page](https://aptos.dev/move/move-on-aptos) in the Aptos developer documentation
+- TODO: more resources
 
-```
-docker build -t move/cli -f docker/move-cli/Dockerfile .
-```
+> *NOTE* If you have an issue with Move on Aptos while working with Aptos, please open it [here](https://github.com/aptos-labs/aptos-core/issues/new/choose) and not in this repo.
 
-### Build a Test Project
+# Consuming and Contributing
 
-```
-cd ./language/documentation/tutorial/step_1/BasicCoin
-docker run -v `pwd`:/project move/cli build
-```
+The repository mirrors the content of the `aptos-core` repo, subtree [`third_party/move`](https://github.com/aptos-labs/aptos-core/tree/main/third_party/move). By consuming this repo, one can avoid cloning the large aptos-core repo. The repo is updated on a monthly basis with the newest changes from aptos-core.
 
-Follow the [language/documentation/tutorial](./language/documentation/tutorial/README.md) to set up move for development.
+> TODO: we plan to automate the update with a nightly schedule
 
-## Community
+For contributions, we ask for now to submit those to the [aptos-core](https://github.com/aptos-labs/aptos-core/tree/main/third_party/move) repo. 
 
-* Join us on the [Move Discord](https://discord.gg/cPUmhe24Mz).
-* Browse code and content from the community at [awesome-move](https://github.com/MystenLabs/awesome-move).
+> TODO: come up with a workflow to allow contributions downstream and upstream
+
 
 ## License
 
