@@ -85,9 +85,9 @@ if [ ! -z "$CHECK" ]; then
   echo "*************** [check-pr] Running checks"
   (
     cd $BASE
-    cargo xlint
-    cargo xclippy --workspace --all-targets
-    cargo xfmt
+    cargo x clippy --workspace --all-targets
+    cargo +nightly fmt
+    cargo sort --grouped --workspace
   )
 fi
 
