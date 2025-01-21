@@ -355,16 +355,6 @@ function install_cvc5 {
   rm -rf "$TMPFILE"
 }
 
-function install_nodejs {
-  if [[ "$PACKAGE_MANAGER" == "apt-get" ]]; then
-    curl -fsSL https://deb.nodesource.com/setup_14.x | "${PRE_COMMAND[@]}" bash -
-    "${PRE_COMMAND[@]}" apt-get install -y nodejs
-  else
-    install_pkg nodejs "$PACKAGE_MANAGER"
-  fi
-  install_pkg npm "$PACKAGE_MANAGER"
-}
-
 function install_solidity {
   echo "Installing Solidity compiler"
   # We fetch the binary from  https://binaries.soliditylang.org
@@ -504,8 +494,8 @@ if [[ "$INSTALL_BUILD_TOOLS" == "false" ]] && \
   INSTALL_BUILD_TOOLS="true"
 fi
 
-if [ ! -f rust-toolchain ]; then
-  echo "Unknown location. Please run this from the move repository. Abort."
+if [ ! -f rust-toolchain.toml ]; then
+  echo "Unknown location. Please run this from the move-on-aptos repository. Abort."
   exit 1
 fi
 
@@ -614,7 +604,6 @@ if [[ "$INSTALL_BUILD_TOOLS" == "true" ]]; then
   # We require nightly for stricter rust formatting
   install_toolchain nightly
   rustup component add rustfmt --toolchain nightly
-  install_nodejs "$PACKAGE_MANAGER"
 fi
 
 if [[ "$INSTALL_INDIVIDUAL" == "true" ]]; then
