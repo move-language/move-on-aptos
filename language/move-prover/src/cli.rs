@@ -804,16 +804,17 @@ impl Options {
         }
 
         if matches.get_flag("aptos") {
-            options.backend.custom_natives = Some(CustomNativeOptions {
-                template_bytes: include_bytes!(
-                    "../../../../aptos-move/framework/src/aptos-natives.bpl"
-                )
-                .to_vec(),
-                module_instance_names: options::custom_native_options(),
-            });
-            options
-                .move_named_address_values
-                .push("Extensions=0x1".to_string())
+            // TODO: re-enable
+            // options.backend.custom_natives = Some(CustomNativeOptions {
+            //     template_bytes: include_bytes!(
+            //         "../../../../aptos-move/framework/src/aptos-natives.bpl"
+            //     )
+            //     .to_vec(),
+            //     module_instance_names: options::custom_native_options(),
+            // });
+            // options
+            //     .move_named_address_values
+            //     .push("Extensions=0x1".to_string())
         }
         if matches.get_flag("compiler-v2") {
             options.compiler_v2 = true;
